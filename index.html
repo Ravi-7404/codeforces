@@ -110,11 +110,10 @@
             const problemsDiv = document.getElementById('problems');
             const loadingDiv = document.getElementById('loading');
             
+            const excludeTopics = ['Dynamic Programming', 'Graph', 'Tree'];
             let unsubmittedProblems = problems
                 .filter(problem => {
                     const key = `${problem.contestId}-${problem.index}`;
-                    // Exclude problems already submitted and exclude topics like DP, Graph, Tree
-                    const excludeTopics = ['Dynamic Programming', 'Graph', 'Tree'];
                     const hasExcludedTopics = problem.tags.some(tag => excludeTopics.includes(tag));
                     return !submittedKeys.has(key) && 
                            problem.rating >= 1000 && 
